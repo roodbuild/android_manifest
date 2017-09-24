@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <!-- Github remote -->
+  <remote name="github"
+      fetch="https://github.com/" />
+
+  <remote name="ivr"
+      fetch="https://github.com/InvictusRom"
+      sync-j="8" />
+
+  <!-- general -->
+  <project path="build/make" name="android_build_make" remote="ivr" revision="o" >
+      <copyfile src="core/root.mk" dest="Makefile" />
+      <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+      <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+      <linkfile src="core" dest="build/core" />
+      <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+      <linkfile src="target" dest="build/target" />
+      <linkfile src="tools" dest="build/tools" />
+  </project>
+
+  <project path="build/soong" name="android_build_soong" remote="ivr" revision="o" >
+      <linkfile src="root.bp" dest="Android.bp" />
+      <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+
+  <project path="bionic" name="android_bionic" remote="ivr" revision="o"/>
+
+  <!-- system -->
+  <project path="system/bt" name="platform/system/bt" remote="ivr" revision="o" />
+  <project path="system/core" name="android_system_core" remote="ivr" revision="o" />
+
+  <!-- frameworks -->
+  <project path="frameworks/av" name="android_frameworks_av" remote="ivr" revision="o" />
+  <project path="frameworks/base" name="android_frameworks_base" remote="ivr" revision="o" />
+
+  <!-- hardware -->
+  <project path="hadware/qcom/gps" name="platform/hardware/qcom/gps" remote="ivr" revision="o" />
+  <project path="hardware/qcom/media" name="platform/hardware/qcom/media" remote="ivr" revision="o" />
+  <project path="hardware/ril" name="platform/hardware/ril" remote="ivr" revision="o" />
+
+  <!-- packages -->
+  <project path="packages/apps/WelcomeBack" name="packages_apps_WelcomeBack" remote="ivr" revision="n" />
+  <project path="packages/providers/MediaProvider" name="platform/packages/providers/MediaProvider" remote="ivr" revision="o" />
+
+  <!-- vendor -->
+  <project path="vendor/invictus" name="vendor_invictus" remote="ivr" revision="o" />
+
+</manifest>
