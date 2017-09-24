@@ -1,4 +1,4 @@
-Nitrogen OS Maintenance Release 2 Manifest
+InvictusROM Manifest
 ====================
 
 Create dirs, and install soft, libs
@@ -21,11 +21,11 @@ Install repo
     chmod a+x ~/bin/repo
     
 
-Create nitrogen folder
+Create invictus folder
 ----------------------
 
-    mkdir ~/nitrogen
-    cd ~/nitrogen
+    mkdir ~/invictus
+    cd ~/invictus
     
 
 GIT config (nickname, e-mail)
@@ -38,29 +38,24 @@ GIT config (nickname, e-mail)
 To initialize your local repository use
 ---------------------------------------
 
-    repo init -u https://github.com/nitrogen-project/android_manifest.git -b o
+    repo init -u https://github.com/roodbuild/android_manifest.git -b o
     
 
 Then to sync up:
 ----------------
 
-    repo sync -j 16
+    repo sync -c -f -j# --force-sync --no-clone-bundle --no-tags 
+    (# being number of cpu jobs)
 
-Build command is
-----------------
+Build Your Device:
+------------------
 
-    cd ~/nitrogen
-    . builder.sh
+    . build/envsetup.sh
+    lunch invictus_device-userdebug
+    make bacon -j# (# being number of cpu jobs, example: -j32)
 
 Official supported Devices
 -----------------
 
-   LG Optimus G - E975/F180/LS970 GEEHRC/GEEHRC4G/GEESPR - xyyx
+   Coming Soon...
 
-   Google Nexus 4 - E960 MAKO/OCCAM - nitin.chobhe
-
-   Google Nexus 5 - D820/D821 HAMMERHEAD - Mr.MEX
-   
-   Google Nexus 5X - BULLHEAD - Nazmul.rr
-
-   Google Nexus 6 - XT1100 SHAMU - nitin.chobhe
